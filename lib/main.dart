@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:test_app/core/theme/theme.dart';
 import 'package:test_app/features/auth/data/datasources/authentication_remote_datasource.dart';
 import 'package:test_app/features/auth/data/datasources/data_remote_datasource.dart';
 import 'package:test_app/features/auth/data/repositories/authentication_repository_impl.dart';
@@ -23,10 +24,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Riverpod App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.darkThemeMode,
       home: const LoginScreen(),
     );
   }

@@ -37,29 +37,47 @@ class DataScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.all(16.0),
-          //   child: Text('Username: ${userEntity.username}'),
-          // ),
-          // Padding(
-          //   padding: const EdgeInsets.all(16.0),
-          //   child: Text('Token: ${userEntity.token}'),
-          // ),
-          Expanded(
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: const AssetImage('assets/homePic.png'),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.9),
+                  BlendMode.dstATop,
+                ),
+              ),
+            ),
+          ),
+          Center(
             child: data.isNotEmpty
                 ? ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (context, index) {
                       final item = data[index];
-                      return Text(item);
+                      return Column(
+                        children: [
+                          SizedBox(
+                            height: 22,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
                     },
                   )
-                : const Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                : const CircularProgressIndicator(),
           ),
         ],
       ),
