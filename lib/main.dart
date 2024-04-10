@@ -6,7 +6,7 @@ import 'package:test_app/features/auth/data/datasources/data_remote_datasource.d
 import 'package:test_app/features/auth/data/repositories/authentication_repository_impl.dart';
 import 'package:test_app/features/auth/domain/usecases/login_usecase.dart';
 import 'package:test_app/features/auth/domain/usecases/logout_usecase.dart';
-import 'package:test_app/features/auth/presentation/pages/login_screen.dart';
+import 'package:test_app/features/auth/presentation/views/login_view.dart';
 import 'package:test_app/features/auth/presentation/providers/authentication_provider.dart';
 import 'package:test_app/features/auth/presentation/providers/data_provider.dart';
 

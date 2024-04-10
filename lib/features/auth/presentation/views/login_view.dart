@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:test_app/core/theme/app_pallete.dart';
 import 'package:test_app/features/auth/domain/entities/user_entity.dart';
-import 'package:test_app/features/auth/presentation/pages/data_screen.dart';
+import 'package:test_app/features/auth/presentation/views/data_view.dart';
 import 'package:test_app/main.dart';
 
 class LoginScreen extends ConsumerWidget {
