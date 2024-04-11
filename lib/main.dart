@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//Define the Riverpod providers
 final authenticationProvider =
     StateNotifierProvider<AuthenticationNotifier, String?>((ref) {
   final authenticationRepository =

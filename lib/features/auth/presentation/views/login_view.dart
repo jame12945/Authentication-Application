@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:test_app/core/theme/app_pallete.dart';
 import 'package:test_app/features/auth/domain/entities/user_entity.dart';
 import 'package:test_app/features/auth/presentation/views/data_view.dart';
 import 'package:test_app/main.dart';
 
-class LoginScreen extends ConsumerWidget {
+class LoginScreen extends HookConsumerWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final usernameController = TextEditingController();
-    final passwordController = TextEditingController();
+    //Using Hook For Management value of username and password
+    final usernameController = useTextEditingController();
+    final passwordController = useTextEditingController();
     final authNotifier = ref.watch(authenticationProvider.notifier);
 
     return Scaffold(
@@ -24,30 +26,30 @@ class LoginScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 height: 300,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: const AssetImage('assets/login_icon.png'),
+                    image: AssetImage('assets/login_icon.png'),
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
               Column(
                 children: [
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text('Sign In',
                       style:
                           TextStyle(fontSize: 16, color: AppPallete.grayColor)),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: usernameController,
                     decoration: const InputDecoration(
                       hintText: 'Username',
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
@@ -60,9 +62,7 @@ class LoginScreen extends ConsumerWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppPallete.succesColor,
                       foregroundColor: AppPallete.whiteColor,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 40,
-                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
